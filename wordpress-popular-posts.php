@@ -13,14 +13,10 @@
  * @package           WordPressPopularPosts
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Popular Posts
- * Plugin URI:        https://wordpress.org/plugins/wordpress-popular-posts/
- * Description:       A highly customizable widget that displays the most popular posts on your blog.
- * Version:           5.2.4
- * Author:            Hector Cabrera
- * Author URI:        https://cabrerahector.com/
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Plugin Name:       Catena Popular Posts
+ * Description:       A fork of Wordpress Popular Posts https://github.com/cabrerahector/wordpress-popular-posts
+ * Version:           1.0.0
+ * Author:            Johannes Tiner
  * Text Domain:       wordpress-popular-posts
  * Domain Path:       /languages
  */
