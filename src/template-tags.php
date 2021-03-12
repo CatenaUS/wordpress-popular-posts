@@ -35,6 +35,10 @@ function wpp_get_views($id = NULL, $range = NULL, $number_format = true)
                     $interval = "24 HOUR";
                 break;
 
+                case "last5days":
+                    $interval = "4 DAY";
+                break;
+
                 case "last7days":
                 case "weekly":
                     $interval = "6 DAY";

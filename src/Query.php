@@ -348,6 +348,11 @@ class Query {
                         $start_datetime = $start_date->format('Y-m-d H:i:s');
                         $views_time_range = "view_datetime >= '{$start_datetime}'";
                         break;
+                    case "last5days":
+                        $start_date = $start_date->sub(new \DateInterval('P4D'));
+                        $start_datetime = $start_date->format('Y-m-d');
+                        $views_time_range = "view_datetime >= '{$start_datetime}'";
+                        break;
                     case "last7days":
                     case "weekly":
                         $start_date = $start_date->sub(new \DateInterval('P6D'));

@@ -378,7 +378,7 @@ class Front {
 
         // possible values for "Time Range" and "Order by"
         $time_units = ["minute", "hour", "day", "week", "month"];
-        $range_values = ["daily", "last24hours", "weekly", "last7days", "monthly", "last30days", "all", "custom"];
+        $range_values = ["daily", "last24hours", "weekly", "last5days", "last7days", "monthly", "last30days", "all", "custom"];
         $order_by_values = ["comments", "views", "avg"];
 
         $shortcode_ops = [

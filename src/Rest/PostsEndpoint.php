@@ -135,7 +135,7 @@ class PostsEndpoint extends Endpoint {
             'range' => [
                 'description'       => __('Return popular posts from a specified time range.'),
                 'type'              => 'string',
-                'enum'              => ['last24hours', 'last7days', 'last30days', 'all', 'custom'],
+                'enum'              => ['last24hours','last5days', 'last7days', 'last30days', 'all', 'custom'],
                 'default'           => 'last24hours',
                 'sanitize_callback' => 'sanitize_text_field',
                 'validate_callback' => 'rest_validate_request_arg',

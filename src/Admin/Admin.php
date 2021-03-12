@@ -738,7 +738,7 @@ class Admin {
      */
     private function get_dates($range = 'last7days', $time_unit = 'HOUR', $time_quantity = 24)
     {
-        $valid_ranges = ['today', 'daily', 'last24hours', 'weekly', 'last7days', 'monthly', 'last30days', 'all', 'custom'];
+        $valid_ranges = ['today', 'daily', 'last24hours', 'weekly', 'last5days', 'last7days', 'monthly', 'last30days', 'all', 'custom'];
         $range = in_array($range, $valid_ranges) ? $range : 'last7days';
         $now = new \DateTime(Helper::now(), new \DateTimeZone(Helper::get_timezone()));
 
@@ -753,6 +753,11 @@ class Admin {
             case "today":
                 $start_date = $now->format('Y-m-d') . ' 00:00:00';
                 $end_date = $now->format('Y-m-d') . ' 23:59:59';
+                break;
+
+            case "last5days":
+                $end_date = $now->format('Y-m-d') . ' 23:59:59';
+                $start_date = $now->modify('-4 day')->format('Y-m-d') . ' 00:00:00';
                 break;
 
             case "last7days":
@@ -893,7 +898,7 @@ class Admin {
 
         if ( wp_verify_nonce($nonce, 'wpp_admin_nonce') ) {
 
-            $valid_ranges = ['today', 'daily', 'last24hours', 'weekly', 'last7days', 'monthly', 'last30days', 'all', 'custom'];
+            $valid_ranges = ['today', 'daily', 'last24hours', 'weekly', 'last5days', 'last7days', 'monthly', 'last30days', 'all', 'custom'];
             $time_units = ["MINUTE", "HOUR", "DAY"];
 
             $range = ( isset($_GET['range']) && in_array($_GET['range'], $valid_ranges) ) ? $_GET['range'] : 'last7days';
@@ -1009,6 +1014,10 @@ class Admin {
                             $hours = date('H', strtotime($now));
                             $minutes = $hours * 60 + (int) date( 'i', strtotime($now) );
                             $interval = "{$minutes} MINUTE";
+                            break;
+
+                        case "last5days":
+                            $interval = "4 DAY";
                             break;
 
                         case "last7days":
